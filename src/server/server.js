@@ -18,7 +18,16 @@ server.route({
     },
   },
   handler() {
-    return `<html><head></head><body>${ReactDOMServer.renderToString(<App />)}</body></html>`;
+    return `
+      <html>
+        <head></head>
+        <body>
+          <div id="app">
+            ${ReactDOMServer.renderToString(<App />)}
+          </div>
+          <script src="/build/bundle.js"></script>
+        </body>
+      </html>`;
   },
 });
 
